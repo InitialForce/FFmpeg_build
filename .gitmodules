@@ -1,0 +1,16 @@
+[submodule "src/zlib"]
+	path = src/zlib
+	url = https://github.com/madler/zlib.git
+[submodule "src/lame"]
+	path = src/lame
+	url = https://github.com/rbrito/lame.git
+[submodule "src/fdk-aac"]
+	path = src/fdk-aac
+	url = https://github.com/mstorsjo/fdk-aac.git
+[submodule "src/ffms2"]
+	path = src/ffms2
+	url = https://github.com/FFMS/ffms2.git
+[submodule "src/FFmpeg"]
+	path = src/FFmpeg
+	url = https://github.com/InitialForce/FFmpeg.git
+	branch = release/2.1
