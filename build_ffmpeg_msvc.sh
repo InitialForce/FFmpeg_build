@@ -107,6 +107,8 @@ echo Building ffmpeg using MSVC ...
 make_build_dir
 
 cp misc/makedef ${ffmpeg_build_dir}
+cp misc/c99conv.exe ${ffmpeg_build_dir}
+cp misc/c99wrap.exe ${ffmpeg_build_dir}
   
 cd ${ffmpeg_build_dir}
 
