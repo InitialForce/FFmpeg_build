@@ -1,2 +1,2 @@
 call "C:\Program Files (x86)\Microsoft Visual Studio 12.0\Vc\vcvarsall.bat" amd64
-C:\msys\msys.bat
+C:\mingw\msys\1.0\msys.bat
