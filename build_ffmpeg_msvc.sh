@@ -89,7 +89,7 @@ configure() (
 )
 
 build() (
-  make -j4
+  make
 )
 
 install() (
