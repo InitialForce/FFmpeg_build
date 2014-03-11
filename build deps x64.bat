@@ -5,6 +5,8 @@ cd src
 cd zlib
 #Edit win32/Makefile.msc so that it uses -MT instead of -MD, since this is how FFmpeg is built as well.
 #Edit zconf.h and remove its inclusion of unistd.h. This gets erroneously included when building FFmpeg.
+C:\MinGW\msys\1.0\bin\patch.exe -N -p1 < ..\..\patches\zlib_001.patch
+C:\MinGW\msys\1.0\bin\patch.exe -N -p1 < ..\..\patches\zlib_002.patch
 nmake -f win32/Makefile.msc zlib.lib
 copy /Y zlib.lib ..\..\sys-x64\bin
 copy /Y zconf.h ..\..\sys-x64\include

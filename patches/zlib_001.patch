@@ -1,0 +1,16 @@
+ zconf.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/zconf.h b/zconf.h
+index 9987a77..6bc3bec 100644
+--- a/zconf.h
++++ b/zconf.h
+@@ -449,7 +449,7 @@ typedef uLong FAR uLongf;
+ #endif
+ #ifndef Z_SOLO
+ #  if defined(Z_HAVE_UNISTD_H) || defined(_LARGEFILE64_SOURCE)
+-#    include <unistd.h>         /* for SEEK_*, off_t, and _LFS64_LARGEFILE */
++#    //include <unistd.h>         /* for SEEK_*, off_t, and _LFS64_LARGEFILE */
+ #    ifdef VMS
+ #      include <unixio.h>       /* for off_t */
+ #    endif
