@@ -89,10 +89,12 @@ configure() (
 )
 
 build() (
-  make
+  echo Building
+  make 
 )
 
 install() (
+  echo Installing
   make install
 )
 
