@@ -8,7 +8,7 @@ debug=true
 dir_suffix="d"
 build_suffix="-if"
 ffmpeg_dir="src/FFmpeg"
-#ffmpeg_dir=`readlink -f FFmpeg`
+ffmpeg_ver=`head -1 ${ffmpeg_dir}/VERSION`
 
 for opt in "$@"
 do
@@ -38,8 +38,8 @@ do
     esac
 done
 
-ffmpeg_build_dir=build_FFmpeg_${shortarch}${dir_suffix}
-install_dir=install_FFmpeg_${shortarch}${dir_suffix}
+ffmpeg_build_dir=build_FFmpeg_${ffmpeg_ver}_${shortarch}${dir_suffix}
+install_dir=install_FFmpeg_${ffmpeg_ver}_${shortarch}${dir_suffix}
 
 sysdir=sys-${shortarch}
 
