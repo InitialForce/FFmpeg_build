@@ -56,18 +56,11 @@ clean() (
 
 configure() (
   OPTIONS="
-    --prefix=../${install_dir}			\
-    --enable-shared                 \
+    --prefix=../${install_dir}		\
+    --toolchain=msvc                \
     --disable-static                \
+    --enable-shared                 \
     --enable-version3               \
-    --enable-w32threads             \
-	--disable-postproc				\
-    --disable-doc                   \
-    --disable-hwaccels              \
-    --enable-hwaccel=h264_dxva2     \
-    --enable-hwaccel=vc1_dxva2      \
-    --enable-hwaccel=wmv3_dxva2     \
-    --enable-hwaccel=mpeg2_dxva2    \
 	--enable-libmp3lame				\
 	--enable-zlib					\
     --yasmexe=../tools/yasm-1.2.0-win64.exe \
@@ -83,9 +76,11 @@ configure() (
   
   if $debug ; then
     OPTIONS="$OPTIONS --enable-debug"
+  else
+    OPTIONS="$OPTIONS --disable-debug"
   fi 
   
-  sh ../${ffmpeg_dir}/configure --toolchain=msvc --extra-cflags="${EXTRA_CFLAGS}" --extra-ldflags="${EXTRA_LDFLAGS}" ${OPTIONS}
+  sh ../${ffmpeg_dir}/configure ${OPTIONS} --extra-cflags="${EXTRA_CFLAGS}" --extra-ldflags="${EXTRA_LDFLAGS}"
 )
 
 build() (
