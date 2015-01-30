@@ -66,7 +66,7 @@ OPTIONS="
     --build-suffix=${build_suffix}  \
     --arch=${arch}"
 
-EXTRA_CFLAGS="-D_WIN32_WINNT=0x0502 -DWINVER=0x0502 -d2Zi+ -MDd -I${sysdir}/include"
+EXTRA_CFLAGS="-D_WIN32_WINNT=0x0502 -DWINVER=0x0502 -MDd -I${sysdir}/include"
 
 EXTRA_LDFLAGS="-NODEFAULTLIB:libcmt \
     ${sysdir}/lib/zlib.lib \
