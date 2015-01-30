@@ -41,8 +41,7 @@ done
 ffmpeg_build_dir=build_FFmpeg_${ffmpeg_ver}_${shortarch}${dir_suffix}
 install_dir=install_FFmpeg_${ffmpeg_ver}_${shortarch}${dir_suffix}
 
-sysdir=sys-${shortarch}
-
+sysdir=$(readlink -f sys-${shortarch})
 
 make_build_dir() (
   if [ ! -d ${ffmpeg_build_dir} ]; then
@@ -67,12 +66,12 @@ configure() (
     --build-suffix=${build_suffix}  \
     --arch=${arch}"
 
-  EXTRA_CFLAGS="-D_WIN32_WINNT=0x0502 -DWINVER=0x0502 -d2Zi+ -MDd -I../${sysdir}/include"
+  EXTRA_CFLAGS="-D_WIN32_WINNT=0x0502 -DWINVER=0x0502 -d2Zi+ -MDd -I${sysdir}/include"
   
   EXTRA_LDFLAGS="-NODEFAULTLIB:libcmt \
-  ../${sysdir}/lib/zlib.lib \
-  ../${sysdir}/lib/mp3lame.lib \
-  -LIBPATH:../${sysdir}/lib/"
+  ${sysdir}/lib/zlib.lib \
+  ${sysdir}/lib/mp3lame.lib \
+  -LIBPATH:${sysdir}/lib/"
   
   if $debug ; then
     OPTIONS="$OPTIONS --enable-debug"
