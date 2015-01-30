@@ -62,7 +62,7 @@ OPTIONS="
     --enable-version3               \
     --enable-libmp3lame				\
     --enable-zlib					\
-    --yasmexe=../tools/yasm-1.2.0-win64.exe \
+    --yasmexe=../tools/yasm-1.3.0-win64.exe \
     --build-suffix=${build_suffix}  \
     --arch=${arch}"
 
