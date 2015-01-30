@@ -74,7 +74,7 @@ EXTRA_LDFLAGS="-NODEFAULTLIB:libcmt \
     -LIBPATH:${sysdir}/lib/"
 
 if $debug ; then
-    OPTIONS="$OPTIONS --enable-debug"
+    OPTIONS="$OPTIONS --enable-debug --disable-optimizations"
 else
     OPTIONS="$OPTIONS --disable-debug"
 fi 
