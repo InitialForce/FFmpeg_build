@@ -41,6 +41,8 @@ done
 ffmpeg_build_dir=build_FFmpeg_${ffmpeg_ver}_${shortarch}${dir_suffix}
 install_dir=install_FFmpeg_${ffmpeg_ver}_${shortarch}${dir_suffix}
 
+echo $ffmpeg_build_dir
+
 sysdir=$(readlink -f sys-${shortarch})
 
 make_build_dir() (
@@ -66,15 +68,16 @@ OPTIONS="
     --build-suffix=${build_suffix}  \
     --arch=${arch}"
 
-EXTRA_CFLAGS="-D_WIN32_WINNT=0x0502 -DWINVER=0x0502 -MDd -I${sysdir}/include"
+EXTRA_CFLAGS="-D_WIN32_WINNT=0x0502 -DWINVER=0x0502 -I${sysdir}/include"
 
 EXTRA_LDFLAGS="-NODEFAULTLIB:libcmt \
-    ${sysdir}/lib/zlib.lib \
     ${sysdir}/lib/mp3lame.lib \
     -LIBPATH:${sysdir}/lib/"
 
 if $debug ; then
     OPTIONS="$OPTIONS --enable-debug --disable-optimizations"
+    EXTRA_CFLAGS="$EXTRA_CFLAGS -Gy -MDd -Zi -O1 -Oy-"
+    EXTRA_LDFLAGS="$EXTRA_LDFLAGS -OPT:REF"
 else
     OPTIONS="$OPTIONS --disable-debug"
 fi 
@@ -103,8 +106,6 @@ echo Building ffmpeg using MSVC ...
 make_build_dir
 
 cp misc/makedef ${ffmpeg_build_dir}
-cp misc/c99conv.exe ${ffmpeg_build_dir}
-cp misc/c99wrap.exe ${ffmpeg_build_dir}
 
 cd ${ffmpeg_build_dir}
 

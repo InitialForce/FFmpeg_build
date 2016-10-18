@@ -1,2 +1,1 @@
-call "C:\Program Files (x86)\Microsoft Visual Studio 12.0\Vc\vcvarsall.bat" x86
-C:\mingw\msys\1.0\msys.bat
+%comspec% /k ""C:\Program Files (x86)\Microsoft Visual Studio 14.0\Vc\vcvarsall.bat" x86 & D:\msys64\msys2_shell.cmd -use-full-path -mingw32"
